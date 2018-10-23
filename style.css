@@ -7,20 +7,41 @@ body {
   display: grid;
 }
 
-header {
-  background-color: blue;
-  display: flex;
-  font-size: 20px;
-  
+.bottom-section {
+  background-color: red;
 }
 
+header {
+  background-color: blue;
+  font-size: 20px;
+  display: table;
+  content: "";
+}
 
+.title {
+  justify-content: flex-start;
+  float: left;
+}
+
+.search-box {
+  display: flex;
+  float: right;
+  height: 30px;
+}
+
+.search-button {
+  margin: 0;
+  padding: 0;
+}
+
+.search-text {
+  margin: 0;
+  padding: 0;
+  width: 150px;
+}
 
 .top-section {
   background-color: green;
 
 }
 
-.bottom-section {
-  background-color: red;
-}
