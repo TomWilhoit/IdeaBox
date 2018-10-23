@@ -1,0 +1,26 @@
+* {
+  margin: 20px;
+  padding: 20px;
+}
+
+body {
+  display: grid;
+}
+
+header {
+  background-color: blue;
+  display: flex;
+  font-size: 20px;
+  
+}
+
+
+
+.top-section {
+  background-color: green;
+
+}
+
+.bottom-section {
+  background-color: red;
+}
