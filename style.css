@@ -1,21 +1,32 @@
-* {
-  margin: 20px;
-  padding: 20px;
-}
 
 body {
   display: grid;
+  grid-template-rows: 150px 450px 1fr;
+  grid-template-areas: 
+  'header'
+  'top'
+  'bottom';
+
+}
+.body-input {
+  width: 507px;
+  height: 150px;
+  box-sizing: border-box;
 }
 
 .bottom-section {
   background-color: red;
+  grid-area: bottom;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+
 }
 
 header {
-  background-color: blue;
+  background-color: #524649;
   font-size: 20px;
-  display: table;
-  content: "";
+  grid-area: header;
 }
 
 .title {
@@ -23,10 +34,32 @@ header {
   float: left;
 }
 
+.title-input {
+  width: 507px;
+  box-sizing: border-box;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  grid-area: top; 
+  background-color: #EAEAEA;
+}
+
+.save-button {
+  display: block;
+  margin-top: 20px;
+  width: 507px;
+  background-color: #6e646b;
+  color: #ffffff;
+}
+
 .search-box {
   display: flex;
   float: right;
   height: 30px;
+  margin-top: 2em;
+  margin-right: 100px;
 }
 
 .search-button {
@@ -40,8 +73,22 @@ header {
   width: 150px;
 }
 
-.top-section {
-  background-color: green;
+span {
+  color: white;
+}
+
+.title-and-body, p{
+  font-size: 30px;
+}
+
+.card-display{
+  
+  border: 2px solid black;
+  width: 30%;
+  justify-content: center;
+  box-sizing: border-box;
 
 }
+
+
 
