@@ -90,5 +90,34 @@ span {
 
 }
 
+.card-text{
+  font-size: 20px;
+}
+
+.down-menu{
+  display: inline-block;
+  width: 30%;
+}
+
+.btn{
+  display: inline-block;
+  /*height: 40px;
+  width: 40px;*/
+  /*border-radius: 60px;*/
+ /* border: none;*/
+  /*padding: 10px;*/
+}
+
+.card-text{
+  margin-right: 80px;
+  margin-left: 30px;
+}
+
+
+
+
+
+
+
 
 
