@@ -113,6 +113,9 @@ span {
   margin-left: 30px;
 }
 
+.fa-minus-circle{
+  z-index: -1;
+}
 
 
 
