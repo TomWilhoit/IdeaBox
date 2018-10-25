@@ -14,12 +14,19 @@ var ideas               =        [];
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
 
-
+window.onload = function() {
+  if (localStorage.getItem('ideas') !== null) {
+    ideas = JSON.parse(localStorage.getItem('ideas'));
+    ideas = ideas.map(function(eachIdea) {
+      return new Idea(eachIdea.title, eachIdea.body, eachIdea.quality, eachIdea.id);
+    });
+  }
+}
 
 function saveReturn() {
   var idea = new Idea (titleInput.value, bodyInput.value); 
   //adds idea in ideas array on line 11//
-  ideas.push(idea);
+  idea.saveToStorage(ideas);
   console.log(ideas);
   appendCard(idea);
   titleInput.value = '';
