@@ -1,16 +1,19 @@
 var searchButton        =        document.querySelector('.search-button');
 var saveButton          =        document.querySelector('.save-button');
-var upVote              =        document.querySelector('.up-vote')
-var downVote            =        document.querySelector('.down-vote')
-var deleteButton        =        document.querySelector('.delete-button')
-var bottomSection       =        document.querySelector('.bottom-section')
+var upVote              =        document.querySelector('.up-vote');
+var downVote            =        document.querySelector('.down-vote');
+var deleteButton        =        document.querySelector('.delete-button');
+var bottomSection       =        document.querySelector('.bottom-section');
+var titleInput          =        document.querySelector('.title-input');
+var bodyInput           =        document.querySelector('.body-input');
 
-saveButton.addEventListener('click', saveReturn)
-bottomSection.addEventListener('click', deleteCard)
+
+saveButton.addEventListener('click', saveReturn);
+bottomSection.addEventListener('click', deleteCard);
+
 
 function saveReturn() {
-  var titleInput = document.querySelector('.title-input')
-  var bodyInput = document.querySelector('.body-input')
+  
   appendCard(titleInput.value, bodyInput.value);
   titleInput.value = '';
   bodyInput.value = '';
@@ -18,7 +21,7 @@ function saveReturn() {
 }
 
 function appendCard(title, body) {
-  event.preventDefault();
+  // event.preventDefault();
   var cardHtml =
     `<div class="card-display">
       <h2>${title}</h2>
