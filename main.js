@@ -30,7 +30,7 @@ function saveReturn() {
 function appendCard(idea) {
   // event.preventDefault();
   var cardHtml =
-    `<div class="card-display">
+    `<div class="card-display" id="${idea.id}">
       <h2>${idea.title}</h2>
       <p>${idea.body}</p>
       <div class="card-button">
@@ -60,17 +60,56 @@ function manageCard(event){
 
 //creates function for upvote and downvote// 
 function upVoteCard(event){
-  console.log('upVote'); 
+  console.log('upVote')
+  var element = event.target.parentElement.parentElement;
+  //get id of element// 
+  var id = element.id;
+
+  var idea = getIdeaById(id); 
+  idea.updateQuality(true);
+  console.log(ideas); 
+
 }
+
 
 function downVoteCard(event){
-  console.log('downVote'); 
-}
+  var element = event.target.parentElement.parentElement;
+  //get id of element// 
+  var id = element.id;
 
+  var idea = getIdeaById(id); 
+  idea.updateQuality(false);
+  console.log('downVote');
+  console.log(ideas); 
+}
 
 
 function deleteCard(event){
-  event.target.parentElement.parentElement.remove();
+  //get the parent element of card// 
+  var element = event.target.parentElement.parentElement;
+  //get id of element// 
+  var id = element.id;
+
+  var idea = getIdeaById(id); 
+  //get index of that idea in ideas array // 
+  var index = ideas.indexOf(idea);
+  //remove that idea from ideas array//  
+  ideas.splice(index,1);
+   
+  console.log(id);
+  console.log(ideas); 
+  //remove that card from dom//
+  element.remove();
+
+
+}
+//It finds idea by its id // //
+function getIdeaById(id){
+  for (var i=0; i < ideas.length; i++){
+    if (id == ideas[i].id){
+      return ideas[i]; 
+    }
+  }
 }
 
 

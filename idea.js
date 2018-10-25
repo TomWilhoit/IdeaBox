@@ -20,6 +20,7 @@ class Idea {
 
     updateQuality(isUpVote){
       if(isUpVote){
+        this.upvote++;
         if(this.quality === "swill"){
           this.quality = "plausible"; 
         }
@@ -28,6 +29,7 @@ class Idea {
         }
       }
       else{
+        this.downvote++;
         if(this.quality === "genius"){
           this.quality = "plausible"; 
         }
