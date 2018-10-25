@@ -84,9 +84,10 @@ span {
 .card-display{
   
   border: 2px solid black;
-  width: 30%;
+  width: 90%;
   justify-content: center;
   box-sizing: border-box;
+  display: block;
 
 }
 
