@@ -8,8 +8,37 @@ class Idea (){
     this.upvote = 0; 
     this.downvote = 0;
 	}
+    function saveToSTorage(){
+
+    }
+
+    function updateSelf(){
+
+    }
+
+    function updateQuality(isUpVote){
+      if(isUpVote){
+        if(this.quality === "swill"){
+          this.quality = "plausible"; 
+        }
+        else if(this.quality === "plausible"){
+          this.quality = "genius"; 
+        }
+      }
+      else{
+        if(this.quality === "genius"){
+          this.quality = "plausible"; 
+        }
+        else if(this.quality === "plausible") {
+          this.quality = "swill"; 
+        }
+      }
+    }
+
+    function deleteFromStorage(){
+
+    }
 
 }
 
 
-var idea1 = new Idea ("hello", "new body", )
