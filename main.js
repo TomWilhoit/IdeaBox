@@ -1,7 +1,7 @@
 var searchButton        =        document.querySelector('.search-button');
 var saveButton          =        document.querySelector('.save-button');
-// var upVote              =        document.querySelector('.up-vote');
-// var downVote            =        document.querySelector('.down-vote');
+var upVote              =        document.querySelector('.up-vote');
+var downVote            =        document.querySelector('.down-vote');
 var deleteButton        =        document.querySelector('.delete-button');
 var bottomSection       =        document.querySelector('.bottom-section');
 var titleInput          =        document.querySelector('.title-input');
@@ -12,7 +12,8 @@ var ideas               =        [];
 
 
 saveButton.addEventListener('click', saveReturn);
-bottomSection.addEventListener('click', deleteCard);
+bottomSection.addEventListener('click', manageCard);
+
 
 
 function saveReturn() {
@@ -43,12 +44,33 @@ function appendCard(idea) {
     
   }
 
-function deleteCard(event){
-  console.log(event)
-  if (event.target.classList.contains('delete-button')) {
-    console.log('here')
-    event.target.parentElement.parentElement.remove();
-  
+
+  //manages all three buttons in display-card// //just like query
+function manageCard(event){
+  if (event.target.classList.contains('delete-button')){
+    deleteCard(event);
+  }
+  else if(event.target.classList.contains('up-vote')){
+    upVoteCard (event);
+  } 
+  else if(event.target.classList.contains('down-vote')){
+    downVoteCard (event);
   }
 }
+
+//creates function for upvote and downvote// 
+function upVoteCard(event){
+  console.log('upVote'); 
+}
+
+function downVoteCard(event){
+  console.log('downVote'); 
+}
+
+
+
+function deleteCard(event){
+  event.target.parentElement.parentElement.remove();
+}
+
 
