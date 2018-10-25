@@ -1,15 +1,16 @@
 class Idea {
 
-	constructor(title, body){
-		this.id = new Date().getTime(); 
+	constructor(title, body, quality, id){
+		this.id = id || new Date().getTime(); 
 		this.title = title;
 		this.body	= body;
-		this.quality = "swill";
+		this.quality = quality || "swill";
     this.upvote = 0; 
     this.downvote = 0;
 	}
-    saveToSTorage(){
-
+    saveToStorage(ideasArray){
+      ideasArray.push(this);
+      localStorage.setItem('ideas', JSON.stringify(ideasArray));
      }
 
     updateSelf(title, body){
