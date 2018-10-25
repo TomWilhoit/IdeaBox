@@ -1,4 +1,4 @@
-class Idea (){
+class Idea {
 
 	constructor(title, body){
 		this.id = new Date().getTime(); 
@@ -8,17 +8,17 @@ class Idea (){
     this.upvote = 0; 
     this.downvote = 0;
 	}
-    function saveToSTorage(){
+    saveToSTorage(){
 
-    }
+     }
 
-    function updateSelf(title, body){
+    updateSelf(title, body){
       this.title = title; 
       this.body = body;
 
     }
 
-    function updateQuality(isUpVote){
+    updateQuality(isUpVote){
       if(isUpVote){
         if(this.quality === "swill"){
           this.quality = "plausible"; 
@@ -37,7 +37,7 @@ class Idea (){
       }
     }
 
-    function deleteFromStorage(){
+    deleteFromStorage(){
 
     }
 
