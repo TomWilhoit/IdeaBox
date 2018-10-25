@@ -12,7 +12,9 @@ class Idea (){
 
     }
 
-    function updateSelf(){
+    function updateSelf(title, body){
+      this.title = title; 
+      this.body = body;
 
     }
 
