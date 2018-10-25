@@ -17,6 +17,9 @@ bottomSection.addEventListener('click', deleteCard);
 
 function saveReturn() {
   var idea = new Idea (titleInput.value, bodyInput.value); 
+  //adds idea in ideas array on line 11//
+  ideas.push(idea);
+  console.log(ideas);
   appendCard(idea);
   titleInput.value = '';
   bodyInput.value = '';
