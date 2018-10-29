@@ -6,12 +6,14 @@ var downVote            =        document.querySelector('.down-vote');
 var deleteButton        =        document.querySelector('.delete-button');
 var bottomSection       =        document.querySelector('.bottom-section');
 var titleInput          =        document.querySelector('.title-input');
-var bodyInput           =        document.querySelector('.body-input');
-var ideas               =        []; 
-var titleEdit = document.querySelector('.title-edit');
-var bodyEdit = document.querySelector('.body-edit');
+var bodyInput           =        document.querySelector('.body-input'); 
+var ideas               =        [];
+var ideasArray          =        [];
+var titleEdit           =        document.querySelector('.title-edit');
 
 // Event Listeners
+
+
 
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
@@ -33,13 +35,33 @@ window.onload = function() {
 }
 
 function saveReturn() {
+  // if (titleInput.value !== false){
+  //   document.getElementById("save-disabled").disabled = false;
+  // }
+
+  if (titleInput.value || bodyInput.value === ''){
+    button.disabled = true;
+
+   }else {
+    button.disabled= false;
+   }
+
+
   var idea = new Idea (titleInput.value, bodyInput.value); 
-  //adds idea in ideas array on line 11//
+  
   idea.saveToStorage(ideas);
   appendCard(idea);
   titleInput.value = '';
   bodyInput.value = '';
+  
+  
 }
+
+
+
+
+  
+
 
 function appendCard(idea) {
   // event.preventDefault();
@@ -108,7 +130,7 @@ function deleteCard(event){
   var index = ideas.indexOf(idea);  
   ideas.splice(index,1);
   idea.deleteFromStorage(ideas);
-  // idea.me(); 
+
   //remove that card from dom//
   element.remove();
 
