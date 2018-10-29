@@ -29,9 +29,12 @@ header {
   grid-area: header;
 }
 
+
+
 .title {
   justify-content: flex-start;
   float: left;
+  color: #b1a1b1;
 }
 
 .title-input {
@@ -52,7 +55,13 @@ header {
   width: 507px;
   background-color: #6e646b;
   color: #ffffff;
+
 }
+.save-button:hover {
+    background-color: #524649; 
+    color: white;
+}
+
 
 .search-box {
   display: flex;
@@ -65,6 +74,8 @@ header {
 .search-button {
   margin: 0;
   padding: 0;
+  width: 40px;
+  background-color: #b2a1b1;
 }
 
 .search-text {

@@ -41,9 +41,7 @@ class Idea {
       }
     }
 
-    me() {
-      alert("BRUUUGHGHGH")
-    }
+    
 
     deleteFromStorage(ideas){
       localStorage.setItem('ideas',JSON.stringify(ideas));
