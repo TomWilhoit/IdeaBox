@@ -8,7 +8,8 @@ var titleInput          =        document.querySelector('.title-input');
 var bodyInput           =        document.querySelector('.body-input');
 //stores list of class// we should be able to access idea.js methods so we need to save them
 //variable in main.js// 
-var ideas               =        []; 
+var ideas               =        [];
+var ideasArray = []; 
 
 
 saveButton.addEventListener('click', saveReturn);
@@ -20,6 +21,9 @@ window.onload = function() {
     ideas = ideas.map(function(eachIdea) {
       return new Idea(eachIdea.title, eachIdea.body, eachIdea.quality, eachIdea.id);
     });
+    ideas.forEach(function(eachIdea){
+      appendCard(eachIdea);
+    })
   }
 }
 
@@ -27,17 +31,15 @@ function saveReturn() {
   var idea = new Idea (titleInput.value, bodyInput.value); 
   //adds idea in ideas array on line 11//
   idea.saveToStorage(ideas);
-  console.log(ideas);
   appendCard(idea);
   titleInput.value = '';
   bodyInput.value = '';
-
 }
 
 function appendCard(idea) {
   // event.preventDefault();
   var cardHtml =
-    `<div class="card-display" id="${idea.id}">
+    `<div class="card-display" id="${idea.id}" data-id="${idea.id}">
       <h2>${idea.title}</h2>
       <p>${idea.body}</p>
       <div class="card-button">
@@ -90,21 +92,21 @@ function downVoteCard(event){
   console.log(ideas); 
 }
 
-
+ 
 function deleteCard(event){
   //get the parent element of card// 
   var element = event.target.parentElement.parentElement;
   //get id of element// 
-  var id = element.id;
+  var id = element.dataset.id;
 
   var idea = getIdeaById(id); 
   //get index of that idea in ideas array // 
   var index = ideas.indexOf(idea);
   //remove that idea from ideas array//  
   ideas.splice(index,1);
-   
-  console.log(id);
-  console.log(ideas); 
+  idea.deleteFromStorage(ideas);
+  console.table(idea);
+  idea.me(); 
   //remove that card from dom//
   element.remove();
 
