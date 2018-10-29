@@ -40,16 +40,9 @@ class Idea {
         }
       }
     }
-
-    
-
     deleteFromStorage(ideas){
       localStorage.setItem('ideas',JSON.stringify(ideas));
-      console.table(ideas);
-
-
     }
-
 }
 
 
