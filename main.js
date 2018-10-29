@@ -1,4 +1,5 @@
 var searchButton        =        document.querySelector('.search-button');
+var searchInput         =        document.querySelector('.search-text')
 var saveButton          =        document.querySelector('.save-button');
 var upVote              =        document.querySelector('.up-vote');
 var downVote            =        document.querySelector('.down-vote');
@@ -6,14 +7,18 @@ var deleteButton        =        document.querySelector('.delete-button');
 var bottomSection       =        document.querySelector('.bottom-section');
 var titleInput          =        document.querySelector('.title-input');
 var bodyInput           =        document.querySelector('.body-input');
-//stores list of class// we should be able to access idea.js methods so we need to save them
-//variable in main.js// 
-var ideas               =        [];
-var ideasArray = []; 
+var ideas               =        []; 
+var titleEdit = document.querySelector('.title-edit');
+var bodyEdit = document.querySelector('.body-edit');
 
+// Event Listeners
 
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
+searchButton.addEventListener('click', search);
+
+
+// On-load 
 
 window.onload = function() {
   if (localStorage.getItem('ideas') !== null) {
@@ -40,8 +45,8 @@ function appendCard(idea) {
   // event.preventDefault();
   var cardHtml =
     `<div class="card-display" id="${idea.id}" data-id="${idea.id}">
-      <h2>${idea.title}</h2>
-      <p>${idea.body}</p>
+      <h2 contentEditable="true" class="title-edit">${idea.title}</h2>
+      <p class="body-edit">${idea.body}</p>
       <div class="card-button">
         <button class="up-vote btn">Up</button>
         <button class="down-vote btn">Down</button>
@@ -100,13 +105,10 @@ function deleteCard(event){
   var id = element.dataset.id;
 
   var idea = getIdeaById(id); 
-  //get index of that idea in ideas array // 
-  var index = ideas.indexOf(idea);
-  //remove that idea from ideas array//  
+  var index = ideas.indexOf(idea);  
   ideas.splice(index,1);
   idea.deleteFromStorage(ideas);
-  console.table(idea);
-  idea.me(); 
+  // idea.me(); 
   //remove that card from dom//
   element.remove();
 
@@ -120,5 +122,29 @@ function getIdeaById(id){
     }
   }
 }
+function search(){
+ event.preventDefault();
+ var searchText = searchInput.value.toUpperCase();
+ var filteredIdeas = ideas.filter(idea => { 
+ var upperCaseTitle = idea.title.toUpperCase();
+ var upperCaseBody = idea.body.toUpperCase();
+
+  return upperCaseTitle.includes(searchText) || upperCaseBody.includes(searchText);
+  });
+
+  bottomSection.innerHTML = '';
+  filteredIdeas.forEach(function(eachIdea){
+      appendCard(eachIdea);
+ });
+
+ }
+
+
+
+function searchCardsReturn() {
+
+}
+
+
 
 
