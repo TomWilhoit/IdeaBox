@@ -14,11 +14,11 @@ class Idea {
 
      }
 
-    // updateSelf(title, body){
-    //   this.title = title; 
-    //   this.body = body;
+    updateSelf(title, body){
+      this.title = title; 
+      this.body = body;
 
-    // }
+    }
 
     updateQuality(isUpVote){
       if(isUpVote){
