@@ -14,11 +14,11 @@ class Idea {
 
      }
 
-    // updateSelf(title, body){
-    //   this.title = title; 
-    //   this.body = body;
+    updateSelf(title, body){
+      this.title = title; 
+      this.body = body;
 
-    // }
+    }
 
     updateQuality(isUpVote){
       if(isUpVote){
@@ -40,7 +40,6 @@ class Idea {
         }
       }
     }
-
     deleteFromStorage(ideas){
       localStorage.setItem('ideas',JSON.stringify(ideas));
     }
