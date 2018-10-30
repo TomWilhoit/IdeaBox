@@ -17,8 +17,7 @@ var cardDisplay         =        document.querySelector('.card-display')
 
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
-searchButton.addEventListener('click', search);
-bottomSection.addEventListener('change',)
+searchInput.addEventListener('keyup', search);
 
 
 
