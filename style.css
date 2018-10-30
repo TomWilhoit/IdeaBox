@@ -18,8 +18,9 @@ body {
   background-color: red;
   grid-area: bottom;
   background-color: #f9f9f9;
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
+
 
 }
 
@@ -95,7 +96,8 @@ span {
 .card-display{
   
   border: 2px solid black;
-  width: 90%;
+  width: 50%;
+  margin: 10px auto;
   justify-content: center;
   box-sizing: border-box;
   display: block;

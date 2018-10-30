@@ -34,28 +34,17 @@ window.onload = function() {
   }
 }
 
-function saveReturn() {
-  // if (titleInput.value !== false){
-  //   document.getElementById("save-disabled").disabled = false;
-  // }
 
-  if (titleInput.value || bodyInput.value === ''){
-    button.disabled = true;
-
-   }else {
-    button.disabled= false;
-   }
-
-
+function saveReturn(event) {
   var idea = new Idea (titleInput.value, bodyInput.value); 
-  
   idea.saveToStorage(ideas);
   appendCard(idea);
   titleInput.value = '';
   bodyInput.value = '';
-  
-  
 }
+  
+  
+
 
 
 
@@ -101,9 +90,10 @@ function upVoteCard(event){
   //get id of element// 
   var id = element.id;
 
-  var idea = getIdeaById(id); 
+  var idea = getIdeaById(id);
   idea.updateQuality(true);
-  console.log(ideas); 
+  event.target.nextElementSibling.nextElementSibling.innerText = `Quality:${idea.quality}`;
+  console.log(ideas);   
 
 }
 
@@ -115,6 +105,7 @@ function downVoteCard(event){
 
   var idea = getIdeaById(id); 
   idea.updateQuality(false);
+  event.target.nextElementSibling.innerText = `Quality:${idea.quality}`;
   console.log('downVote');
   console.log(ideas); 
 }
