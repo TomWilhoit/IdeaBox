@@ -20,6 +20,8 @@ body {
   background-color: #f9f9f9;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
 }
 
@@ -95,7 +97,7 @@ span {
 .card-display{
   
   border: 2px solid black;
-  width: 90%;
+  width: 600px;
   justify-content: center;
   box-sizing: border-box;
   display: block;
