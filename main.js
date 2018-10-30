@@ -15,7 +15,7 @@ var bodyEdit = document.querySelector('.body-edit');
 
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
-searchButton.addEventListener('click', search);
+searchInput.addEventListener('keyup', search);
 
 
 // On-load 
