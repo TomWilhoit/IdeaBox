@@ -9,17 +9,11 @@ feel you strongly, we present you Idea-box - A place to store your million dolla
 * Vote Buttons- Rate your ideas and prioritize them
 * Delete Buttons- You dont like your ideas? You can instantly delete them with our powerful delete button. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 Think more, learn more, think bigger
+
+
+## Full View
+![Screenshot](ideafull.png)
+
+## Mobile View
+![Screenshot](ideamobile.png)
