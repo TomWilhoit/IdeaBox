@@ -12,20 +12,11 @@ var ideasArray          =        [];
 var titleEdit           =        document.querySelector('.title-edit');
 var cardDisplay         =        document.querySelector('.card-display')
 
-
-
 // Event Listeners
-
-
-
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
 searchInput.addEventListener('keyup', search);
 bottomSection.addEventListener('dblclick', editCard);
-
-
-
-
 // On-load 
 
 window.onload = function() {
@@ -112,7 +103,6 @@ function upVoteCard(event){
   console.log('upVote')
   var element = event.target.parentElement.parentElement;
   var id = element.id;
-
   var idea = getIdeaById(id); 
   idea.updateQuality(true);
   event.target.nextElementSibling.nextElementSibling.innerText = `Quality:${idea.quality}`;
