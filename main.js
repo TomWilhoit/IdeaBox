@@ -64,7 +64,7 @@ function appendCard(idea) {
       <h2 contentEditable="false" class="edit title-edit">${idea.title}</h2>
       <p contentEditable="false" class="edit body-edit">${idea.body}</p>
       <div class="card-button">
-        <button class="up-vote btn">Up</button>
+        <button class="up-vote btn">up</button>
         <button class="down-vote btn">Down</button>
         <p class="card-text btn">Quality:${idea.quality}</p>
         <button class="delete-button btn" > X </button>
@@ -91,8 +91,8 @@ function manageCard(event){
 function editCard() {
   
   if (event.target.classList.contains("edit")) {
-    event.target.contentEditable = true;
-    event.target.addEventListener('blur',saveText);
+     event.target.contentEditable = true;
+     event.target.addEventListener('blur',saveText);
   }
 }
 

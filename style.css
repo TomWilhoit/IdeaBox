@@ -8,21 +8,21 @@ body {
   'bottom';
 
 }
+
 .body-input {
   width: 507px;
   height: 150px;
   box-sizing: border-box;
+
 }
 
 .bottom-section {
   background-color: red;
   grid-area: bottom;
   background-color: #f9f9f9;
-  /*display: flex;*/
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
 
 }
 
@@ -30,6 +30,7 @@ header {
   background-color: #524649;
   font-size: 20px;
   grid-area: header;
+
 }
 
 
@@ -38,11 +39,13 @@ header {
   justify-content: flex-start;
   float: left;
   color: #b1a1b1;
+
 }
 
 .title-input {
   width: 507px;
   box-sizing: border-box;
+
 }
 
 .top-section {
@@ -50,6 +53,7 @@ header {
   justify-content: center;
   grid-area: top; 
   background-color: #EAEAEA;
+
 }
 
 .save-button {
@@ -60,11 +64,12 @@ header {
   color: #ffffff;
 
 }
+
 .save-button:hover {
     background-color: #524649; 
     color: white;
-}
 
+}
 
 .search-box {
   display: flex;
@@ -72,6 +77,7 @@ header {
   height: 30px;
   margin-top: 2em;
   margin-right: 100px;
+
 }
 
 .search-button {
@@ -79,56 +85,57 @@ header {
   padding: 0;
   width: 40px;
   background-color: #b2a1b1;
+
 }
 
 .search-text {
   margin: 0;
   padding: 0;
   width: 150px;
+
 }
 
 span {
   color: white;
+
 }
 
-.title-and-body, p{
+.title-and-body, 
+p{
   font-size: 30px;
+
 }
 
-.card-display{
-  
+.card-display {
   border: 2px solid black;
-
   width: 36%;
   margin: 10px auto;
-
   justify-content: center;
   box-sizing: border-box;
   display: block;
 
 }
 
-.card-text{
+.card-text {
   font-size: 20px;
+
 }
 
-.down-menu{
+.down-menu {
   display: inline-block;
   width: 30%;
+
 }
 
-.btn{
+.btn {
   display: inline-block;
  
 }
 
-.card-text{
+.card-text {
   margin-right: 80px;
   margin-left: 30px;
-}
 
-.fa-minus-circle{
-  z-index: -1;
 }
 
 
