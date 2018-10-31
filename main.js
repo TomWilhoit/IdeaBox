@@ -11,6 +11,9 @@ var ideas               =        [];
 var ideasArray          =        [];
 var titleEdit           =        document.querySelector('.title-edit');
 var cardDisplay         =        document.querySelector('.card-display')
+
+
+
 // Event Listeners
 
 
@@ -18,6 +21,7 @@ var cardDisplay         =        document.querySelector('.card-display')
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
 searchInput.addEventListener('keyup', search);
+bottomSection.addEventListener('dblclick', editCard);
 
 
 
@@ -42,6 +46,7 @@ function saveReturn(event) {
     event.disabled= false;
    }
   var idea = new Idea (titleInput.value, bodyInput.value); 
+  // debugger
   idea.saveToStorage(ideas);
   appendCard(idea);
   titleInput.value = '';
@@ -52,8 +57,8 @@ function appendCard(idea) {
   event.preventDefault();
   var cardHtml =
     `<div class="card-display" id="${idea.id}" data-id="${idea.id}">
-      <h2 contentEditable="true" class="title-edit">${idea.title}</h2>
-      <p contentEditable="true" class="body-edit">${idea.body}</p>
+      <h2 contentEditable="false" class="edit title-edit">${idea.title}</h2>
+      <p contentEditable="false" class="edit body-edit">${idea.body}</p>
       <div class="card-button">
         <button class="up-vote btn">Up</button>
         <button class="down-vote btn">Down</button>
@@ -78,17 +83,41 @@ function manageCard(event){
     downVoteCard (event);
   }
 }
- 
+
+function editCard() {
+  
+  if (event.target.classList.contains("edit")) {
+    event.target.contentEditable = true;
+    event.target.addEventListener('blur',saveText);
+  }
+}
+
+function saveText() {
+  var id = event.target.parentElement.dataset.id;
+  var idea = getIdeaById(id);
+  var index = findIndex(idea);
+  if (event.target.classList.contains('title-edit')){ 
+    idea.updateSelf(event.target.innerText, 'title');
+  } else { 
+    idea.updateSelf(event.target.innerText, 'body');
+  }
+    ideas.splice(index, 1, idea);
+    idea.saveToStorage(ideas);
+}
 function upVoteCard(event){
   console.log('upVote')
   var element = event.target.parentElement.parentElement;
   var id = element.id;
-
   var idea = getIdeaById(id); 
   idea.updateQuality(true);
   console.log(ideas); 
 
 }
+
+function findIndex(idea){
+  console.log(ideas.indexOf(idea));
+}
+
 
 
 function downVoteCard(event){
@@ -138,9 +167,7 @@ function search(){
 
 
 
-function searchCardsReturn() {
 
-}
 
 
 
