@@ -11,6 +11,7 @@ class Idea {
     saveToStorage(ideas){
       ideas.push(this);
       localStorage.setItem("ideas",JSON.stringify(ideas));
+
      }
 
     updateSelf(newText, type) {
@@ -20,6 +21,7 @@ class Idea {
           this.body = newText;  
      }
     }
+
     updateQuality(isUpVote){
       if(isUpVote){
         this.upvote++;

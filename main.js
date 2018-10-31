@@ -25,6 +25,7 @@ bottomSection.addEventListener('dblclick', editCard);
 
 
 
+
 // On-load 
 
 window.onload = function() {
@@ -36,6 +37,7 @@ window.onload = function() {
     ideas.forEach(function(eachIdea){
       appendCard(eachIdea);
     })
+    
   }
 }
 
@@ -47,11 +49,13 @@ function saveReturn(event) {
    }
   var idea = new Idea (titleInput.value, bodyInput.value); 
   // debugger
+
   idea.saveToStorage(ideas);
   appendCard(idea);
   titleInput.value = '';
   bodyInput.value = '';
 }
+
 
 function appendCard(idea) {
   event.preventDefault();
@@ -108,9 +112,11 @@ function upVoteCard(event){
   console.log('upVote')
   var element = event.target.parentElement.parentElement;
   var id = element.id;
+
   var idea = getIdeaById(id); 
   idea.updateQuality(true);
-  console.log(ideas); 
+  event.target.nextElementSibling.nextElementSibling.innerText = `Quality:${idea.quality}`;
+  console.log(ideas);   
 
 }
 
@@ -125,6 +131,7 @@ function downVoteCard(event){
   var id = element.id;
   var idea = getIdeaById(id); 
   idea.updateQuality(false);
+  event.target.nextElementSibling.innerText = `Quality:${idea.quality}`;
   console.log('downVote');
   console.log(ideas); 
 }

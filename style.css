@@ -18,10 +18,11 @@ body {
   background-color: red;
   grid-area: bottom;
   background-color: #f9f9f9;
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
 
 }
 
@@ -97,7 +98,10 @@ span {
 .card-display{
   
   border: 2px solid black;
-  width: 600px;
+
+  width: 36%;
+  margin: 10px auto;
+
   justify-content: center;
   box-sizing: border-box;
   display: block;
@@ -115,11 +119,7 @@ span {
 
 .btn{
   display: inline-block;
-  /*height: 40px;
-  width: 40px;*/
-  /*border-radius: 60px;*/
- /* border: none;*/
-  /*padding: 10px;*/
+ 
 }
 
 .card-text{
