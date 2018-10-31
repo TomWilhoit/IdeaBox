@@ -11,14 +11,15 @@ class Idea {
     saveToStorage(ideas){
       ideas.push(this);
       localStorage.setItem("ideas",JSON.stringify(ideas));
-      
+
      }
 
-    updateSelf(title, body){
-    this.title = title; 
-    this.body = body;
-
-
+    updateSelf(newText, type) {
+      if (type === 'title') {
+        this.title = newText;
+      } else if (type === 'body') {
+          this.body = newText;  
+     }
     }
 
     updateQuality(isUpVote){

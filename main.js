@@ -10,6 +10,9 @@ var bodyInput           =        document.querySelector('.body-input');
 var ideas               =        [];
 var ideasArray          =        [];
 var titleEdit           =        document.querySelector('.title-edit');
+var cardDisplay         =        document.querySelector('.card-display')
+
+
 
 // Event Listeners
 
@@ -17,7 +20,9 @@ var titleEdit           =        document.querySelector('.title-edit');
 
 saveButton.addEventListener('click', saveReturn);
 bottomSection.addEventListener('click', manageCard);
-searchButton.addEventListener('click', search);
+searchInput.addEventListener('keyup', search);
+bottomSection.addEventListener('dblclick', editCard);
+
 
 
 
@@ -36,32 +41,28 @@ window.onload = function() {
   }
 }
 
-
-
-
 function saveReturn(event) {
+  if (titleInput.value || bodyInput.value === ''){
+    event.disabled = true;
+   }else {
+    event.disabled= false;
+   }
   var idea = new Idea (titleInput.value, bodyInput.value); 
+  // debugger
+
   idea.saveToStorage(ideas);
   appendCard(idea);
   titleInput.value = '';
   bodyInput.value = '';
 }
-  
-  
-
-
-
-
-
-  
 
 
 function appendCard(idea) {
-  // event.preventDefault();
+  event.preventDefault();
   var cardHtml =
     `<div class="card-display" id="${idea.id}" data-id="${idea.id}">
-      <h2 contentEditable="true" class="title-edit">${idea.title}</h2>
-      <p class="body-edit">${idea.body}</p>
+      <h2 contentEditable="false" class="edit title-edit">${idea.title}</h2>
+      <p contentEditable="false" class="edit body-edit">${idea.body}</p>
       <div class="card-button">
         <button class="up-vote btn">Up</button>
         <button class="down-vote btn">Down</button>
@@ -72,7 +73,7 @@ function appendCard(idea) {
     bottomSection.innerHTML += cardHtml;
     
   }
-
+//event.target.dataset.(declared variable) grabs the texts inside of specific card.
 
   //manages all three buttons in display-card// //just like query
 function manageCard(event){
@@ -87,26 +88,47 @@ function manageCard(event){
   }
 }
 
-//creates function for upvote and downvote// 
+function editCard() {
+  
+  if (event.target.classList.contains("edit")) {
+    event.target.contentEditable = true;
+    event.target.addEventListener('blur',saveText);
+  }
+}
+
+function saveText() {
+  var id = event.target.parentElement.dataset.id;
+  var idea = getIdeaById(id);
+  var index = findIndex(idea);
+  if (event.target.classList.contains('title-edit')){ 
+    idea.updateSelf(event.target.innerText, 'title');
+  } else { 
+    idea.updateSelf(event.target.innerText, 'body');
+  }
+    ideas.splice(index, 1, idea);
+    idea.saveToStorage(ideas);
+}
 function upVoteCard(event){
   console.log('upVote')
   var element = event.target.parentElement.parentElement;
-  //get id of element// 
   var id = element.id;
 
-  var idea = getIdeaById(id);
+  var idea = getIdeaById(id); 
   idea.updateQuality(true);
   event.target.nextElementSibling.nextElementSibling.innerText = `Quality:${idea.quality}`;
   console.log(ideas);   
 
 }
 
+function findIndex(idea){
+  console.log(ideas.indexOf(idea));
+}
+
+
 
 function downVoteCard(event){
   var element = event.target.parentElement.parentElement;
-  //get id of element// 
   var id = element.id;
-
   var idea = getIdeaById(id); 
   idea.updateQuality(false);
   event.target.nextElementSibling.innerText = `Quality:${idea.quality}`;
@@ -116,22 +138,16 @@ function downVoteCard(event){
 
  
 function deleteCard(event){
-  //get the parent element of card// 
   var element = event.target.parentElement.parentElement;
-  //get id of element// 
   var id = element.dataset.id;
-
   var idea = getIdeaById(id); 
   var index = ideas.indexOf(idea);  
   ideas.splice(index,1);
   idea.deleteFromStorage(ideas);
-
-  //remove that card from dom//
   element.remove();
 
 
 }
-//It finds idea by its id // //
 function getIdeaById(id){
   for (var i=0; i < ideas.length; i++){
     if (id == ideas[i].id){
@@ -158,9 +174,7 @@ function search(){
 
 
 
-function searchCardsReturn() {
 
-}
 
 
 
