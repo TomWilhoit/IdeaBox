@@ -96,7 +96,7 @@ span {
 .card-display{
   
   border: 2px solid black;
-  width: 50%;
+  width: 36%;
   margin: 10px auto;
   justify-content: center;
   box-sizing: border-box;
@@ -115,11 +115,7 @@ span {
 
 .btn{
   display: inline-block;
-  /*height: 40px;
-  width: 40px;*/
-  /*border-radius: 60px;*/
- /* border: none;*/
-  /*padding: 10px;*/
+ 
 }
 
 .card-text{

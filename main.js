@@ -20,6 +20,7 @@ bottomSection.addEventListener('click', manageCard);
 searchButton.addEventListener('click', search);
 
 
+
 // On-load 
 
 window.onload = function() {
@@ -31,8 +32,11 @@ window.onload = function() {
     ideas.forEach(function(eachIdea){
       appendCard(eachIdea);
     })
+    
   }
 }
+
+
 
 
 function saveReturn(event) {
