@@ -61,7 +61,7 @@ function appendCard(idea) {
         <button class="delete-button btn" > X </button>
       </div>
      </div>`
-    bottomSection.innerHTML += cardHtml;
+    bottomSection.insertAdjacentHTML('afterbegin', cardHtml);
     
   }
 //event.target.dataset.(declared variable) grabs the texts inside of specific card.

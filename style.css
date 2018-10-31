@@ -138,6 +138,64 @@ p{
 
 }
 
+@media screen and (max-width: 1385px){
+  .card-display{
+    width: 507px;
+  }
+  header{
+    display:flex;
+  }
+  .title{
+    justify-content: center;
+    margin-left: 20px;
+  }
+
+}
+
+@media screen and (max-width: 500px){
+  .card-display{
+    margin-left: 25px;
+    margin-right: 0px;
+    width: 353px;
+  }
+  
+  .save-button{
+    width: 350px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  .body-input{
+    width: 350px;
+    margin-left: 20px;
+  }
+
+  .title{
+    margin: 16px 0px 0px 70px;
+  }
+  .title-input{
+    width: 350px;
+    margin-right: 120px;
+    margin-left: 20px;
+  }
+
+  article.top-section{
+    width: 410px;
+  }
+
+  header{
+    display: block;
+    width: 410px;
+  }
+
+  .title-and-body{
+    width: 410px;
+  
+  }
+}
+
+
+
 
 
 

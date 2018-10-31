@@ -9,7 +9,7 @@ class Idea {
     this.downvote = 0;
   }
     saveToStorage(ideas){
-      ideas.push(this);
+      ideas.unshift(this);
       localStorage.setItem("ideas",JSON.stringify(ideas));
 
      }
